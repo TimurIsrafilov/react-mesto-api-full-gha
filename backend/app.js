@@ -20,7 +20,7 @@ const auth = require('./middlewares/auth');
 
 const NotFoundError = require('./errors/not-found-error');
 
-mongoose.connect('mongodb://localhost:27017/mestodb');
+mongoose.connect('mongodb://127.0.0.1:27017/mestodb');
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes

@@ -1,0 +1,18 @@
+.auth-form__link {
+    font-family: 'Inter', 'Arial', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    margin: 0 0 20px 5px;
+    color: rgba(255, 255, 255, 1);
+    text-align: center;
+    text-decoration: none;
+    opacity: 1;
+    transition: 0.5s;
+  }
+
+  .auth-form__link:hover {
+    opacity: 0.6;
+    transition: 0.5s;
+  }

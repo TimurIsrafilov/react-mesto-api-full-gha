@@ -1,0 +1,19 @@
+.header__login-status-text {
+    font-family: 'Inter', 'Arial', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: rgba(255, 255, 255, 1);
+    text-decoration: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0.5s;
+}
+
+.header__login-status-text:hover {
+    opacity: 0.6;
+    transition: 0.5s;
+}

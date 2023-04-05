@@ -30,7 +30,7 @@ const limiter = rateLimit({
   message: 'Too many request from this IP',
 });
 
-app.use(cors({ origin: 'http://mesto.itf.nomoredomains.monster' }));
+app.use(cors({ origin: 'http://mesto.itf.nomoredomains.monster, http://localhost:3000' }));
 app.use(express.json());
 
 app.use(limiter);

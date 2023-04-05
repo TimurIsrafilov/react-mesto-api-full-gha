@@ -16,6 +16,7 @@ class Api {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "http://api.itf.nomoredomains.monster",
         authorization: `Bearer ${localStorage.getItem('token')}`,
       },
     })
@@ -27,6 +28,7 @@ class Api {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "http://api.itf.nomoredomains.monster",
         authorization: `Bearer ${localStorage.getItem('token')}`,
       },
     })
@@ -39,6 +41,7 @@ class Api {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "http://api.itf.nomoredomains.monster",
         authorization: `Bearer ${localStorage.getItem('token')}`,
       },
       body: JSON.stringify({
@@ -55,6 +58,7 @@ class Api {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "http://api.itf.nomoredomains.monster",
         authorization: `Bearer ${localStorage.getItem('token')}`,
       },
       body: JSON.stringify({
@@ -71,6 +75,7 @@ class Api {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "http://api.itf.nomoredomains.monster",
         authorization: `Bearer ${localStorage.getItem('token')}`,
       },
     })
@@ -84,6 +89,7 @@ class Api {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "http://api.itf.nomoredomains.monster",
         authorization: `Bearer ${localStorage.getItem('token')}`,
       },
     })
@@ -96,6 +102,7 @@ class Api {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "http://api.itf.nomoredomains.monster",
         authorization: `Bearer ${localStorage.getItem('token')}`,
       },
       body: JSON.stringify({
@@ -107,10 +114,11 @@ class Api {
 }
 
 const api = new Api({
-  baseUrl: "http://localhost:3001",
+  baseUrl: "http://api.itf.nomoredomains.monster",
   headers: {
     Accept: "application/json",
     "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "http://api.itf.nomoredomains.monster",
     authorization: `Bearer ${localStorage.getItem('token')}`,
   },
 });

@@ -2,6 +2,8 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 
+const { NODE_ENV, JWT_SECRET } = process.env;
+
 const NotFoundError = require('../errors/not-found-error');
 const ValidatationError = require('../errors/validation-error');
 const DuplicationError = require('../errors/duplication-error');
@@ -95,7 +97,7 @@ const login = (req, res, next) => {
       return next(new AuthorizationError('неправильные почта или пароль'));
     }))
     .then((user) => {
-      const token = jwt.sign({ _id: user._id }, 'secret-key', { expiresIn: '7d' });
+      const token = jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret', { expiresIn: '7d' });
       res.send({ user, token });
     })
     .catch(next);

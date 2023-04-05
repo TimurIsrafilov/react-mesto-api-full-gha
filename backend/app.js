@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const rateLimit = require('express-rate-limit');
 const cors = require('cors');
+require('dotenv').config({ path: './.env'});
 
 const { PORT = 3001 } = process.env;
 const app = express();
@@ -13,6 +14,7 @@ const usersRouter = require('./routes/users');
 const cardsRouter = require('./routes/cards');
 
 const { linkPattern } = require('./utils/utils');
+const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const { createUser, login } = require('./controllers/users');
 
@@ -34,6 +36,8 @@ app.use(cors({ origin: 'http://mesto.itf.nomoredomains.monster' }));
 app.use(express.json());
 
 app.use(limiter);
+
+app.use(requestLogger);
 
 app.post('/signin', celebrate({
   body: Joi.object().keys({
@@ -63,6 +67,8 @@ app.use('/*', (req, res, next) => {
   // res.status(NOT_FOUND_ERROR).send({ message: 'Запрошенная страница не найдена' });
   next(new NotFoundError('Запрошенная страница не найдена'));
 });
+
+app.use(errorLogger);
 
 app.use(errors());
 

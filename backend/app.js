@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const rateLimit = require('express-rate-limit');
 const cors = require('cors');
-require('dotenv').config({ path: './.env'});
+require('dotenv').config({ path: './.env' });
 
 const { PORT = 3001 } = process.env;
 const app = express();
@@ -38,6 +38,12 @@ app.use(express.json());
 app.use(limiter);
 
 app.use(requestLogger);
+
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
 
 app.post('/signin', celebrate({
   body: Joi.object().keys({

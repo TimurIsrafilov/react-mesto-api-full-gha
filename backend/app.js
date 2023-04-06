@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const rateLimit = require('express-rate-limit');
+
 const cors = require('cors');
 require('dotenv').config({ path: './.env' });
 
@@ -13,6 +13,7 @@ const { errors } = require('celebrate');
 const usersRouter = require('./routes/users');
 const cardsRouter = require('./routes/cards');
 
+const { limiter } = require('./utils/limiter');
 const { linkPattern } = require('./utils/utils');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
@@ -24,20 +25,11 @@ const NotFoundError = require('./errors/not-found-error');
 
 mongoose.connect('mongodb://127.0.0.1:27017/mestodb');
 
-const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes)
-  standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
-  legacyHeaders: false, // Disable the `X-RateLimit-*` headers
-  message: 'Too many request from this IP',
-});
-
 app.use(cors({ origin: 'http://mesto.itf.nomoredomains.monster' }));
 app.use(express.json());
 
-app.use(limiter);
-
 app.use(requestLogger);
+app.use(limiter);
 
 app.get('/crash-test', () => {
   setTimeout(() => {
@@ -67,7 +59,6 @@ app.use(auth);
 
 // роуты, которым авторизация нужна
 app.use('/users', auth, usersRouter);
-app.use('/users/me', auth, usersRouter);
 app.use('/cards', auth, cardsRouter);
 app.use('/*', (req, res, next) => {
   // res.status(NOT_FOUND_ERROR).send({ message: 'Запрошенная страница не найдена' });

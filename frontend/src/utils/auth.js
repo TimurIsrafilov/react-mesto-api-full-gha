@@ -13,7 +13,7 @@ export const register = (email, password) => {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "http://api.itf.nomoredomains.monster, https://api.itf.nomoredomains.monster",
+      "Access-Control-Allow-Origin": "api.itf.nomoredomains.monster",
     },
     body: JSON.stringify({ email, password }),
   }).then(getResponse);
@@ -25,7 +25,7 @@ export const authorize = (email, password) => {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "http://api.itf.nomoredomains.monster, https://api.itf.nomoredomains.monster",
+      "Access-Control-Allow-Origin": "api.itf.nomoredomains.monster",
     },
     body: JSON.stringify({ email, password }),
   }).then(getResponse);
@@ -37,7 +37,7 @@ export const checkToken = (token) => {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "http://api.itf.nomoredomains.monster, https://api.itf.nomoredomains.monster",
+      "Access-Control-Allow-Origin": "api.itf.nomoredomains.monster",
       Authorization: `Bearer ${token}`,
     },
   }).then(getResponse);

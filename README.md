@@ -27,10 +27,8 @@ https://github.com/TimurIsrafilov/react-mesto-api-full-gha.git
 
 ## Ссылки на проект
 
-IP-адрес 51.250.84.1
-
 Frontend https://mesto.itf.nomoredomains.monster/
 
 Backend https://api.itf.nomoredomains.monster/
 
-PS для работы сервиса требуется запуск виртуального сервера
+PS для работы сервиса требуется запуск виртуальной машины Яндекс Cloud

@@ -32,3 +32,5 @@ IP-адрес 51.250.84.1
 Frontend https://mesto.itf.nomoredomains.monster/
 
 Backend https://api.itf.nomoredomains.monster/
+
+PS для работы сервиса требуется запуск виртуального сервера
